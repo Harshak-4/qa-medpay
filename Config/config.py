@@ -1,7 +1,7 @@
 import random
 n = random.randint(900, 10000)
 class TestData:
-    CHROME_EXECUTABLE_PATH = "/Users/teamstreamz/Downloads/chromedriver"
+    CHROME_EXECUTABLE_PATH = "<Path to chrome driver>"
 
     BASE_URL = "https://testing.d3eymc78cqte40.amplifyapp.com/login"
     USER_NAME = "TestUser123"
