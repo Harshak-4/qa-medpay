@@ -5,5 +5,6 @@ QA assignment submission -
 
 To run the automation script:
 1. change directory to qa-medpay/ from terminal
-2. run following command - 'pytest -v --html=report.html --self-contained-html'
+2. Run following command for all tests to execute - 'pytest -v --html=report.html --self-contained-html'
+3. Run following command to execute Place order and check in assigned page - 'pytest -v -m placeorder --html=placeorder-report.html --self-contained-html'
 
