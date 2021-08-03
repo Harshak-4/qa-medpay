@@ -1,5 +1,7 @@
 import time
 import pytest
+from selenium.webdriver import ActionChains
+
 from Config.config import TestData
 from Pages.LoginPage import LoginPage
 from Tests.test_base import BaseTest
@@ -100,6 +102,7 @@ class Test_Dashboard(BaseTest):
         submit_btn = dashboardPage.click_cancel_reason()
         assert submit_btn
 
+    @pytest.mark.placeorder
     def test_place_order(self):
         self.loginPage = LoginPage(self.driver)
         dashboardPage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
@@ -113,3 +116,26 @@ class Test_Dashboard(BaseTest):
         time.sleep(1)
         export_btn = dashboardPage.download_orders()
         assert export_btn
+
+    def test_navigate_manage_order(self):
+        self.loginPage = LoginPage(self.driver)
+        dashboardPage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        time.sleep(1)
+        pending_tab = dashboardPage.manage_orders()
+        assert pending_tab
+
+    @pytest.mark.placeorder
+    def test_assign_order(self):
+        self.loginPage = LoginPage(self.driver)
+        dashboardPage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        time.sleep(1)
+        assign_btn = dashboardPage.assign_order()
+        assert assign_btn
+
+    @pytest.mark.placeorder
+    def test_assigned_tab(self):
+        self.loginPage = LoginPage(self.driver)
+        dashboardPage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        dashboardPage.navigate_to_manage()
+        assigned_tab = dashboardPage.assigned_tab()
+        assert assigned_tab

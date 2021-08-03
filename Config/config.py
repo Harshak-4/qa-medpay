@@ -1,10 +1,12 @@
 import random
 n = random.randint(900, 10000)
+
+
 class TestData:
     CHROME_EXECUTABLE_PATH = "<Path to chrome driver>"
 
     BASE_URL = "https://testing.d3eymc78cqte40.amplifyapp.com/login"
-    USER_NAME = "TestUser123"
+    USER_NAME = "EditorUser123"
     PASSWORD = "123456"
     LOGIN_PAGE_TITLE = "Order Dashboard"
     COLUMN_PARTNER_TITLE = "Partner Order ID"

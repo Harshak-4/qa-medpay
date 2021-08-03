@@ -28,6 +28,10 @@ class BasePage:
         WebDriverWait(self.driver, 10).until(EC.title_is(title))
         return self.driver.title
 
+    def do_click_js(self, by_locator):
+        element = WebDriverWait(self.driver, 10).until((EC.visibility_of_element_located(by_locator)))
+        self.driver.execute_script("arguments[0].click();", element)
+
     def accept_alert(self):
         try:
             WebDriverWait(self.driver, 10).until(EC.alert_is_present())
